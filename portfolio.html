@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+   <div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/WhatsApp Image 2024-02-26 at 15.09.20.jpeg" class="Logo">
+            <ul>
+                <li><a href="#header">HOME</a></li>
+                <li><a href="#ABOUT">ABOUT</a></li>
+                <li><a href="#PROJECTS">PROJECTS</a></li>
+                <li><a href="#CONTACT">CONTACT</a></li>
+            </ul>
+        </nav>
+        <div class="header-text">
+            <p>STUDENT</p>
+            <h1>Hello,I'm <span>Sally</span><br> Mutoko Namuseyi<br> from Kenya</h1>
+        </div>
+    </div>
+
+   </div>
+
+
+   <div id="ABOUT">
+    <div class="container">
+        <div class="row">
+            <div class="ABOUT-col-1">
+                <img src="images/WhatsApp Image 2023-02-21 at 08.30.46.jpeg" width="400" height="400">
+            </div>
+            <div class="ABOUT-col-2">
+                <h1 class="subtitle">About Me</h1>
+                <p>I am Sally Mutoko Namuseyi from Cooperative university.<br> I'm pursuing a course in IT in my second year.<br> I have taken an interest in web development,<br> data science and cyber security.<br> I aim at gaining more skills and knowledge,<br> and network with my fellow students from other universities. </p>
+
+                <div class="tab-titles">
+                    <p class="tab-link active-link"onclick="opentab('Skills')">Skills</p>
+                    <p class="tab-link"onclick="opentab('Education')">Education</p>
+                </div>
+                <div class="tab-contents active-tab" id="Skills">
+                    <ul>
+                        <li><span>Web development</span><br>Web app development</li>
+                        <li><span>Programming languages</span><br>C,C++,Java Script, Scratch</li>
+                        <li><span>Software Engineering</span><br>system development</li>
+                    </ul>
+                </div>
+                <div class="tab-contents" id="Education">
+                    <ul>
+                        <li><span>2022-Current</span><br>Information Technology</li>
+                        <li><span>2022-2017</span><br>Ngiriambu High school</li>
+                        <li><span>2013-2016</span><br>Good Sherperd's Academy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+
+   <div id="PROJECTS">
+    <div class="container">
+        <h1 class="subtitle">My Projects</h1>
+        <div class="work-list">
+            <div class="work">
+                <img src="images/WhatsApp Image 2024-02-25 at 16.58.36.jpeg" width="200" height="200">
+                <div class="layer">
+                    <h3>Birthday website</h3>
+                    <p>This website is for my friend's birthday</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+            <div class="work">
+                <img src="images/WhatsApp Image 2024-02-25 at 17.03.10.jpeg" width="200" height="200">
+                <div class="layer">
+                    <h3>Mental health website</h3>
+                    <p>This website is for the youth in<br> universities undergoing mental health.</p>
+                    <a href="#"><i class="fa-solid fa-link"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+
+   <div id="CONTACT">
+    <div class="container">
+        <div class="row">
+            <div class="contact-left">
+                <h1 class="subtitle">Contact Me</h1>
+                <p><i class="fa-solid fa-paper-plane"></i>sallymutoko@icloud.com</p>
+                <p><i class="fa-solid fa-square-phone"></i>0708561259</p>
+                <div class="social-icons">
+                    <a href=""><i class="fa-brands fa-linkedin"></i></a>
+                    <a href=""><i class="fa-brands fa-instagram"></i></a>
+                    <a href=""><i class="fa-brands fa-github"></i></a>
+                </div>
+                
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" rows="6" placeholder="Enter your Message"></textarea>
+                    <button type="submit" class="btn btn2">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+   </div>
+   <script>
+    var tablinks = document.getElementsByClassName("tab-link");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for( tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+   </script>
+   <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxkABzvbNkmAU_Cnk8h-Jpvfds3KnwSVp7Y585UiVK2wWWxFulqVmX_ut5LojoJZ46r_A/exec'
+    const form = document.forms['submit-to-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+</html>
